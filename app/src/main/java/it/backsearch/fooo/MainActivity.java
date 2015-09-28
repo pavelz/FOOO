@@ -9,16 +9,19 @@ import android.view.MenuItem;
 import android.media.MediaPlayer;
 import java.util.TimerTask;
 import java.util.Timer;
+import android.widget.EditText;
 
 public class MainActivity extends Activity{
     Button btn;
     Timer myTimer = null;
     TimerTask timerTask;
     MediaPlayer mediaPlayer;
+    EditText et;
 
     public void clickTHIS(View view) {
 
         btn = (Button)(view.findViewById(R.id.button));
+        et = (EditText)(view.findViewById(R.id.editText));
         if(mediaPlayer == null) {
             mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.beep_03);
         }
@@ -28,6 +31,8 @@ public class MainActivity extends Activity{
             btn.setText("START");
         } else {
             btn.setText("STOP");
+            String s = et.getText().toString();
+            int sec = Integer.getInteger(s);
 
             myTimer = new Timer();
             timerTask = new TimerTask() {
@@ -36,7 +41,7 @@ public class MainActivity extends Activity{
                     mediaPlayer.start();
                 }
             };
-            myTimer.schedule(timerTask, 0, 4000);
+            myTimer.schedule(timerTask, 0, sec * 1000);
         }
     }
 

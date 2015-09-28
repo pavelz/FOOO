@@ -30,4 +30,25 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"/>
 
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/editText"
+        android:layout_below="@+id/textClock"
+        android:layout_marginTop="57dp"
+        android:layout_alignStart="@+id/textClock"
+        android:text="0"
+        android:layout_alignParentEnd="false"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Secs"
+        android:id="@+id/textView"
+        android:layout_below="@+id/editText"
+        android:layout_alignEnd="@+id/textClock"/>
+
 </RelativeLayout>
