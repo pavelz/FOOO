@@ -11,6 +11,7 @@ import java.util.TimerTask;
 import java.util.Timer;
 import android.widget.EditText;
 
+
 public class MainActivity extends Activity{
     Button btn;
     Timer myTimer = null;
@@ -20,28 +21,34 @@ public class MainActivity extends Activity{
 
     public void clickTHIS(View view) {
 
-        btn = (Button)(view.findViewById(R.id.button));
-        et = (EditText)(view.findViewById(R.id.editText));
-        if(mediaPlayer == null) {
-            mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.beep_03);
-        }
-        if(timerTask != null) {
-            timerTask.cancel();
-            timerTask = null;
-            btn.setText("START");
-        } else {
-            btn.setText("STOP");
-            String s = et.getText().toString();
-            int sec = Integer.getInteger(s);
+        btn = (Button)view.findViewById(R.id.button);
 
-            myTimer = new Timer();
-            timerTask = new TimerTask() {
-                @Override
-                public void run() {
-                    mediaPlayer.start();
+        if(view == btn) {
+            View mainview = findViewById(R.id.appster);
+            et = (EditText) mainview.findViewById(R.id.editText2);
+            if (mediaPlayer == null) {
+                mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.beep_03);
+            }
+            if (timerTask != null) {
+                timerTask.cancel();
+                timerTask = null;
+                btn.setText("START");
+            } else {
+                btn.setText("STOP");
+                int sec = 3;
+                if (et != null) {
+                    String s = et.getText().toString();
+                    sec = Integer.parseInt(s);
                 }
-            };
-            myTimer.schedule(timerTask, 0, sec * 1000);
+                myTimer = new Timer();
+                timerTask = new TimerTask() {
+                    @Override
+                    public void run() {
+                        mediaPlayer.start();
+                    }
+                };
+                myTimer.schedule(timerTask, 0, sec * 1000);
+            }
         }
     }
 
