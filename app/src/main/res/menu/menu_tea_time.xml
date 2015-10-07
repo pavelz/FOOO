@@ -1,10 +1,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:tools="http://schemas.android.com/tools"
-      tools:context=".MainActivity">
-     <item android:id="@+id/tea_time_presets"
-          android:title="@string/tea_time_presets"
-          android:orderInCategory="100"
-          android:showAsAction="never"/>
+      tools:context="it.backsearch.fooo.TeaTimeActivity">
     <item android:id="@+id/action_settings"
           android:title="@string/action_settings"
           android:orderInCategory="100"

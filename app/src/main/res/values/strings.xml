@@ -3,4 +3,6 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="tea_time_presets">Brew Tea Timer</string>
+    <string name="title_activity_tea_time">TeaTimeActivity</string>
 </resources>

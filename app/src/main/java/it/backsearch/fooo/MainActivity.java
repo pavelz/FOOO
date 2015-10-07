@@ -10,7 +10,7 @@ import android.media.MediaPlayer;
 import java.util.TimerTask;
 import java.util.Timer;
 import android.widget.EditText;
-
+import android.content.Intent;
 
 public class MainActivity extends Activity{
     Button btn;
@@ -76,6 +76,10 @@ public class MainActivity extends Activity{
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
+        }
+        if(id == R.id.tea_time_presets) {
+            Intent i = new Intent(this, TeaTimeActivity.class);
+            startActivity(i);
         }
 
         return super.onOptionsItemSelected(item);
